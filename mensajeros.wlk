@@ -94,10 +94,10 @@ object saraConor {
   //no puede llamar a nadie su peso es de su propio peso + peso del vehiculo que maneja
 	var pesoSara = 60
 
-	var vehiculo = camion.peso()
+	var vehiculo = camion
 	const credito = 0
 	method peso(){
-		return pesoSara + vehiculo
+		return pesoSara + vehiculo.peso()
 	}
 	method pesoSara(_pesoSara){
 		pesoSara = _pesoSara
@@ -107,11 +107,6 @@ object saraConor {
 	}
 		method validarCredito(){
 		return credito > 0
-	}
-	
-
-	method moto(){
-		return 100
 	}
 }
 
