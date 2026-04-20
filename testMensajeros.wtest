@@ -30,7 +30,8 @@ describe "mensajeros de pelicula"{
         paquete.mensajero(saraConor)
         paquete.destino(puenteDeBrooklyn)
         saraConor.pesoSara(70)
-        saraConor.vehiculo(camionAcoplado)
+        camion.acoplado(true)
+        saraConor.vehiculo(camion)
         assert.equals(false, paquete.puedeEnviarPaquete())
     }
     test "paquete enviado por sara en moto"{

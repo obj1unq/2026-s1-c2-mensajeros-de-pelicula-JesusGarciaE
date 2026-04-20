@@ -65,12 +65,11 @@ object laMatrix {
 object jeanGray {
 	//puede llamar siempre  pesa 65kg
 	const peso = 65
-	const credito =100
 	method peso(){
 		return peso
 	}
-		method validarCredito(){
-		return credito > 0
+	method validarCredito(){
+		return true
 	}
 }
 
@@ -111,16 +110,25 @@ object saraConor {
 }
 
 object camion {
+	var acoplado = false
 	method peso(){
-		return 500
+		if (self.acoplado()) {
+			return 1000
+		} else {
+			return 500
+		}
+	}
+
+	method acoplado(){
+		return acoplado
+	}
+
+	method acoplado(_acoplado){
+		acoplado = _acoplado
 	}
 }
 
-object camionAcoplado {
-	method peso(){
-		return 1000
-	}
-}
+
 
 object moto {
 	method peso(){
