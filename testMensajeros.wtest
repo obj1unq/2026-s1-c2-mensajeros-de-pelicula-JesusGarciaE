@@ -1,0 +1,45 @@
+import mensajeros.*
+
+describe "mensajeros de pelicula"{
+    // test "el paquete no puede ser entregado por que no fue pagado y no puede ser entregado por neo en la  matrix"{
+    //     paquete.pagoDelPaquete(false)
+    //     paquete.mensajero(neo)
+    //     paquete.destino(laMatrix)
+    //     assert.throwsException({paquete.enviarPaquete()})
+    // }
+    // test "el paquete fue pagado y puede ser entregado por jean gray en la matrix"{
+    //     paquete.pagoDelPaquete(true)
+    //     paquete.mensajero(jeanGray)
+    //     paquete.destino(laMatrix)
+    //     assert.throwsException({paquete.enviarPaquete()})
+    // }
+    test "paquete no pagado" {
+      paquete.pagoDelPaquete(false)
+      paquete.mensajero(neo)
+      paquete.destino(laMatrix)
+      assert.equals(false, paquete.puedeEnviarPaquete())
+    }
+    test "paquete pagado enviado por jean gray a la matrix" {
+      paquete.pagoDelPaquete(true)
+      paquete.mensajero(jeanGray)
+      paquete.destino(laMatrix)
+      assert.equals(true, paquete.puedeEnviarPaquete())
+    }
+    test "paquete enviado por sara" {
+        paquete.pagoDelPaquete(true)
+        paquete.mensajero(saraConor)
+        paquete.destino(puenteDeBrooklyn)
+        saraConor.pesoSara(70)
+        camion.acoplados(1)
+        saraConor.vehiculo(camion)
+        assert.equals(false, paquete.puedeEnviarPaquete())
+    }
+    test "paquete enviado por sara en moto"{
+        paquete.pagoDelPaquete(true)
+        paquete.mensajero(saraConor)
+        paquete.destino(puenteDeBrooklyn)
+        saraConor.pesoSara(70)
+        saraConor.vehiculo(moto)
+        assert.equals(true, paquete.puedeEnviarPaquete())
+    }
+}
