@@ -35,12 +35,10 @@ object paquete{
 	}
 	
 	method estaPago(){
-		return self.paquetePagado() 
+		return pagoDelPaquete 
 	}
 
-	method paquetePagado(){
-		return pagoDelPaquete
-	}
+
 	method  pagoDelPaquete(_pagoDelPaquete){
 		pagoDelPaquete = _pagoDelPaquete
 	}
@@ -58,7 +56,7 @@ object puenteDeBrooklyn{
 object laMatrix {
 	//deja entrar a todo aquel que pueda realizar una llamada
 	method puedeEntrar(mensajero){
-		return (mensajero.validarCredito())
+		return (mensajero.puedeLlamar())
 	}
 }
 
@@ -67,6 +65,9 @@ object jeanGray {
 	const peso = 65
 	method peso(){
 		return peso
+	}
+	method puedeLlamar(){
+		return true
 	}
 	method validarCredito(){
 		return true
@@ -80,7 +81,7 @@ object neo {
 	method peso(){
 		return peso
 	}
-	method validarCredito(){
+	method puedeLlamar(){
 		return credito > 0
 	}
 	method credito(_credito){
@@ -104,27 +105,21 @@ object saraConor {
 	method vehiculo(_vehiculo){
 		vehiculo = _vehiculo
 	}
-		method validarCredito(){
+		method puedeLlamar(){
 		return credito > 0
 	}
 }
 
 object camion {
-	var acoplado = false
+	var acoplados = 0
+	const pesoIndividual = 500
 	method peso(){
-		if (self.acoplado()) {
-			return 1000
-		} else {
-			return 500
-		}
+		return pesoIndividual + (acoplados * pesoIndividual)
 	}
 
-	method acoplado(){
-		return acoplado
-	}
 
-	method acoplado(_acoplado){
-		acoplado = _acoplado
+	method acoplados(_acoplado){
+		acoplados = _acoplado
 	}
 }
 
